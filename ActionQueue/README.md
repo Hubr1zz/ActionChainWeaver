@@ -1,6 +1,6 @@
 # ActionQueue
 
-第一次接触本系统时，建议先阅读 [ActionQueue 新手简介](GETTING_STARTED.md)。性能基准与优化路线单独维护在 [ActionQueue 性能优化审查](PERFORMANCE.md)。
+第一次接触本系统时，建议先阅读 [ActionQueue 新手简介](GETTING_STARTED.md)。
 
 这是一个与旧 `CardGame.ActionSystem` 并存的新实现。运行时没有 Action 执行器递归：
 
@@ -204,5 +204,3 @@ Examples/                            # 可运行示例
 
 `Core + Reactions + Debugging` 不引用 `UnityEngine`，但为了当前 Unity 使用场景继续使用 UniTask。
 普通 .NET 移植时需要替换的异步边界和文件清单见 [移植说明](PORTING.md)。
-
-性能热点、基准运行方法和后续 P2 候选统一维护在 [ActionQueue 性能优化审查](PERFORMANCE.md)，不再混入新手简介。

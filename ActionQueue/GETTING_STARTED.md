@@ -296,11 +296,7 @@ Editor/ActionQueueDebuggerWindow.cs 可视化调试窗口
 Examples/                           可运行案例
 ```
 
-## 11. 性能与优化
-
-性能基准、热点证据和分级优化路线已移至 [ActionQueue 性能优化审查](PERFORMANCE.md)。
-
-## 12. 使用边界
+## 11. 使用边界
 
 - Engine 按 Unity 主线程、单执行泵设计，不支持多个线程同时修改 Registry 或入队。
 - `StopAndClear()` 无法强制终止完全忽略 `CancellationToken` 的第三方异步代码。
