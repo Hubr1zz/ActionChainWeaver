@@ -1,0 +1,14 @@
+{
+  "name": "PreviewSystem.Runtime",
+  "rootNamespace": "GameFramework.Preview",
+  "references": [],
+  "includePlatforms": [],
+  "excludePlatforms": [],
+  "allowUnsafeCode": false,
+  "overrideReferences": false,
+  "precompiledReferences": [],
+  "autoReferenced": true,
+  "defineConstraints": [],
+  "versionDefines": [],
+  "noEngineReferences": true
+}

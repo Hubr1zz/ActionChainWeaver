@@ -1,0 +1,315 @@
+.aq-root {
+    flex-grow: 1;
+    background-color: rgb(30, 32, 36);
+    color: rgb(216, 220, 226);
+}
+
+.aq-shell {
+    flex-grow: 1;
+}
+
+.aq-navigation {
+    flex-grow: 1;
+    background-color: rgb(24, 26, 30);
+    border-right-width: 1px;
+    border-right-color: rgb(56, 59, 66);
+}
+
+.aq-brand {
+    height: 74px;
+    padding-left: 14px;
+    padding-right: 12px;
+    flex-direction: row;
+    align-items: center;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(49, 52, 58);
+}
+
+.aq-brand-icon {
+    width: 38px;
+    height: 38px;
+    margin-right: 11px;
+    border-radius: 6px;
+    background-color: rgb(45, 126, 193);
+    color: white;
+    -unity-font-style: bold;
+    font-size: 13px;
+    -unity-text-align: middle-center;
+}
+
+#brand-title {
+    color: rgb(233, 236, 241);
+    font-size: 12px;
+    -unity-font-style: bold;
+    letter-spacing: 1px;
+}
+
+#brand-subtitle {
+    margin-top: 2px;
+    color: rgb(133, 141, 153);
+    font-size: 11px;
+}
+
+.aq-menu {
+    flex-grow: 1;
+    padding-top: 8px;
+    padding-left: 7px;
+    padding-right: 7px;
+}
+
+.aq-menu-section {
+    margin-top: 14px;
+    margin-bottom: 5px;
+    padding-left: 9px;
+    color: rgb(104, 112, 125);
+    font-size: 9px;
+    -unity-font-style: bold;
+    letter-spacing: 0.8px;
+}
+
+.aq-menu-item {
+    height: 48px;
+    margin-bottom: 3px;
+    padding-left: 8px;
+    padding-right: 8px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-start;
+    background-color: rgba(0, 0, 0, 0);
+    border-width: 0;
+    border-left-width: 3px;
+    border-left-color: rgba(0, 0, 0, 0);
+    border-radius: 4px;
+}
+
+.aq-menu-item:hover {
+    background-color: rgb(35, 38, 44);
+}
+
+.aq-menu-item.is-selected {
+    background-color: rgb(39, 55, 70);
+    border-left-color: rgb(61, 157, 229);
+}
+
+.aq-menu-icon {
+    width: 28px;
+    color: rgb(113, 161, 203);
+    font-size: 16px;
+    -unity-text-align: middle-center;
+}
+
+.aq-menu-copy {
+    flex-grow: 1;
+    margin-left: 5px;
+}
+
+.aq-menu-title {
+    color: rgb(218, 223, 229);
+    font-size: 12px;
+    -unity-font-style: bold;
+}
+
+.aq-menu-subtitle {
+    margin-top: 2px;
+    color: rgb(118, 126, 138);
+    font-size: 9px;
+}
+
+.aq-menu-item.is-selected .aq-menu-title {
+    color: white;
+}
+
+.aq-menu-item.is-selected .aq-menu-subtitle {
+    color: rgb(154, 190, 218);
+}
+
+.aq-navigation-footer {
+    padding: 11px;
+    border-top-width: 1px;
+    border-top-color: rgb(49, 52, 58);
+}
+
+.aq-status-pill {
+    height: 21px;
+    padding-left: 8px;
+    padding-right: 8px;
+    align-self: flex-start;
+    border-radius: 10px;
+    background-color: rgb(48, 51, 58);
+    color: rgb(138, 145, 155);
+    font-size: 9px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.aq-status-pill.is-playing {
+    background-color: rgb(35, 77, 54);
+    color: rgb(105, 221, 145);
+}
+
+.aq-footer-detail {
+    margin-top: 7px;
+    color: rgb(113, 120, 131);
+    font-size: 9px;
+}
+
+.aq-workspace {
+    flex-grow: 1;
+    background-color: rgb(31, 33, 38);
+}
+
+.aq-page-header {
+    min-height: 74px;
+    padding-left: 22px;
+    padding-right: 20px;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    background-color: rgb(35, 37, 42);
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(56, 59, 66);
+}
+
+.aq-page-titles {
+    flex-grow: 1;
+}
+
+.aq-page-title {
+    color: rgb(238, 240, 244);
+    font-size: 18px;
+    -unity-font-style: bold;
+}
+
+.aq-page-subtitle {
+    margin-top: 4px;
+    color: rgb(132, 140, 152);
+    font-size: 10px;
+}
+
+.aq-header-badge {
+    min-width: 52px;
+    height: 22px;
+    padding-left: 9px;
+    padding-right: 9px;
+    border-radius: 11px;
+    background-color: rgb(42, 68, 88);
+    color: rgb(111, 189, 240);
+    font-size: 9px;
+    -unity-font-style: bold;
+    -unity-text-align: middle-center;
+}
+
+.aq-page-content {
+    flex-grow: 1;
+    padding: 12px;
+}
+
+.aq-runtime-canvas {
+    flex-grow: 1;
+}
+
+.aq-card {
+    flex-grow: 1;
+    overflow: hidden;
+    background-color: rgb(36, 38, 43);
+    border-width: 1px;
+    border-color: rgb(57, 60, 67);
+    border-radius: 5px;
+}
+
+.aq-type-toolbar {
+    min-height: 34px;
+    padding-left: 5px;
+    padding-right: 5px;
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(58, 61, 68);
+}
+
+.aq-type-tabs {
+    height: 38px;
+    padding-left: 9px;
+    padding-right: 9px;
+    flex-direction: row;
+    align-items: flex-end;
+    background-color: rgb(32, 34, 39);
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(58, 61, 68);
+}
+
+.aq-type-tab {
+    min-width: 86px;
+    height: 31px;
+    margin-right: 3px;
+    padding-left: 14px;
+    padding-right: 14px;
+    background-color: rgba(0, 0, 0, 0);
+    color: rgb(145, 152, 163);
+    border-width: 0;
+    border-bottom-width: 2px;
+    border-bottom-color: rgba(0, 0, 0, 0);
+    -unity-font-style: bold;
+    font-size: 10px;
+}
+
+.aq-type-tab:hover {
+    background-color: rgb(40, 43, 49);
+    color: rgb(216, 221, 228);
+}
+
+.aq-type-tab.is-selected {
+    background-color: rgb(38, 48, 58);
+    color: rgb(112, 194, 245);
+    border-bottom-color: rgb(61, 157, 229);
+}
+
+.aq-type-list {
+    flex-grow: 1;
+    border-width: 0;
+}
+
+.aq-type-empty {
+    flex-grow: 1;
+    color: rgb(128, 135, 146);
+    font-size: 11px;
+    -unity-text-align: middle-center;
+}
+
+.aq-type-row {
+    min-height: 58px;
+    padding-left: 12px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    white-space: normal;
+    color: rgb(205, 210, 218);
+    border-bottom-width: 1px;
+    border-bottom-color: rgb(48, 51, 57);
+}
+
+.aq-guide {
+    flex-grow: 1;
+    padding-right: 5px;
+}
+
+.aq-guide-card {
+    margin-bottom: 10px;
+    padding: 16px;
+    background-color: rgb(37, 40, 45);
+    border-width: 1px;
+    border-color: rgb(58, 62, 69);
+    border-left-width: 3px;
+    border-left-color: rgb(55, 145, 211);
+    border-radius: 5px;
+}
+
+.aq-guide-title {
+    margin-bottom: 8px;
+    color: rgb(230, 233, 238);
+    font-size: 13px;
+    -unity-font-style: bold;
+}
+
+.aq-guide-body {
+    color: rgb(159, 166, 177);
+    font-size: 11px;
+    white-space: normal;
+}
