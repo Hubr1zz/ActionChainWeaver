@@ -206,7 +206,7 @@ namespace CardGame.ActionQueue
 
                             await workItem.RunAsync(this, chainCancellationToken);
                         }
-                        catch (OperationCanceledException)
+                        catch (OperationCanceledException) when (chainCancellationToken.IsCancellationRequested)
                         {
                             AbortActiveChain(ActionOutcome.Cancelled("Action wait was cancelled."));
                         }

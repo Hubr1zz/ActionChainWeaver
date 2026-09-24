@@ -36,6 +36,14 @@ namespace CardGame.ActionQueue
             _debugger?.BeginChain(chainId, chainReactors);
         }
 
+        private void DebugEnsureActiveChain()
+        {
+            if (_debugger == null || !_debugger.IsRecording || _activeChain == null || _activeChain.DiscardHistory)
+                return;
+
+            _debugger.EnsureActiveChain(_activeChain.Id, _activeChain.Request.ChainReactors);
+        }
+
         private UniTask DebugBeforeWorkItemAsync(
             QueueWorkItem workItem,
             CancellationToken cancellationToken)
@@ -43,14 +51,19 @@ namespace CardGame.ActionQueue
             if (_debugger == null || !_debugger.ObservesWorkItems)
                 return UniTask.CompletedTask;
 
-            return _debugger.BeforeWorkItemAsync(
+            DebugEnsureActiveChain();
+            return _debugger?.BeforeWorkItemAsync(
                 workItem.DebugName,
                 workItem.IsBreakpointNode,
-                cancellationToken);
+                cancellationToken) ?? UniTask.CompletedTask;
         }
 
         private void DebugRegisterAction(ActionRuntime runtime)
         {
+            if (_debugger == null || !_debugger.IsRecording)
+                return;
+
+            DebugEnsureActiveChain();
             _debugger?.RegisterAction(
                 runtime.Id,
                 runtime.ParentId,
@@ -75,6 +88,10 @@ namespace CardGame.ActionQueue
 
         private void DebugRegisterReactors(ReactionBatchState state)
         {
+            if (_debugger == null || !_debugger.IsRecording)
+                return;
+
+            DebugEnsureActiveChain();
             if (_debugger == null || !_debugger.IsRecording)
                 return;
 
@@ -127,6 +144,10 @@ namespace CardGame.ActionQueue
 
         private void DebugCompleteChain(int executedActionCount)
         {
+            if (_debugger == null)
+                return;
+
+            DebugEnsureActiveChain();
             _debugger?.CompleteChain(executedActionCount);
         }
 
@@ -187,7 +208,9 @@ namespace CardGame.ActionQueue
                 pendingWorkItems.Add(_workQueue[i].DebugName);
 
             int activeActionCount = _activeChain?.ExecutedActionCount ?? 0;
-            return Debugger.CreateSnapshot(
+            ActionQueueDebugService debugger = Debugger;
+            DebugEnsureActiveChain();
+            return debugger.CreateSnapshot(
                 MaxActionsPerChain,
                 pendingRoots,
                 pendingWorkItems,

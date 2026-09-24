@@ -1,4 +1,5 @@
 using System;
+using Cysharp.Threading.Tasks;
 
 namespace CardGame.ActionQueue
 {
@@ -23,20 +24,60 @@ namespace CardGame.ActionQueue
 
         private void LogVerbose(string message)
         {
-            if (LogLevel >= ActionQueueLogLevel.Verbose)
-                Logger?.LogVerbose(message);
+            if (Logger == null || LogLevel < ActionQueueLogLevel.Verbose)
+                return;
+
+            try
+            {
+                Logger.LogVerbose(message);
+            }
+            catch (Exception exception)
+            {
+                ReportLoggerException(exception);
+            }
         }
 
         private void LogWarning(string message)
         {
-            if (LogLevel >= ActionQueueLogLevel.WarningsAndErrors)
-                Logger?.LogWarning(message);
+            if (Logger == null || LogLevel < ActionQueueLogLevel.WarningsAndErrors)
+                return;
+
+            try
+            {
+                Logger.LogWarning(message);
+            }
+            catch (Exception exception)
+            {
+                ReportLoggerException(exception);
+            }
         }
 
         private void LogException(Exception exception)
         {
-            if (LogLevel >= ActionQueueLogLevel.WarningsAndErrors)
-                Logger?.LogException(exception);
+            if (Logger == null || LogLevel < ActionQueueLogLevel.WarningsAndErrors)
+                return;
+
+            try
+            {
+                Logger.LogException(exception);
+            }
+            catch (Exception loggerException)
+            {
+                ReportLoggerException(loggerException);
+            }
+        }
+
+        private static void ReportLoggerException(Exception exception)
+        {
+            try
+            {
+                // 诊断回调失败不能阻止队列请求完成。
+                UniTask.FromException(exception).Forget();
+            }
+            catch (Exception)
+            {
+                // 诊断回调失败不能阻止队列请求完成。
+            }
         }
 
         #endregion

@@ -14,6 +14,10 @@
 
 Composite Action 被拆成“一个子 Action + 一个 continuation”。子节点结束后，continuation 再询问父节点的下一个子 Action。嵌套 Composite 仍使用相同机制，因此父 Action 可以安全地成为另一个 Action 的子节点。
 
+## 玩家输入准入
+
+`Enqueue(root)` 默认会把新的根行动排队。若游戏需要在逻辑或动画繁忙时拒绝玩家的新操作，可以在提交前使用 `RootActionInputGate`。它只检查外部输入；当前连携产生的子 Action 和 Reactor 响应不会被挡住。`03_Presentation` 案例展示了这几种输入策略。
+
 ## Reactor 来源
 
 | 来源 | API | 用途 |
@@ -156,7 +160,7 @@ Engine 中必须访问私有队列状态的调试代码单独放在 partial 文�
 在 Unity 菜单打开：
 
 ```text
-Window -> Card Game -> Action Queue Debugger
+Tools -> ActionChainWeaver -> Debug Window
 ```
 
 进入 Play Mode 后，窗口可以：

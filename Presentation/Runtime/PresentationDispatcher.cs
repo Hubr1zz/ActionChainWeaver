@@ -51,6 +51,16 @@ namespace GameFramework.Presentation
             }
         }
 
+        /// <summary>任一 Channel 有正在播放或排队的表现请求。</summary>
+        public bool HasActiveRequests
+        {
+            get
+            {
+                lock (_gate)
+                    return _channels.Count > 0;
+            }
+        }
+
         public IDisposable Register(IPresentationHandler handler)
         {
             if (handler == null)

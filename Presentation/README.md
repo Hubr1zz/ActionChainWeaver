@@ -70,6 +70,8 @@ dispatcher.Publish(request, cancellationToken);
 
 冲突策略只决定 Handle 的真实结束时间，不决定 Action 是否等待。
 
+`dispatcher.HasActiveRequests` 在任意通道有正在播放或排队的 Request 时为 `true`。它可作为玩家输入门的“表现忙”信号；只在提交新 root Action 的输入边界检查，别用它阻止当前连携内部的 Action。
+
 ## Debug：立即完成
 
 ```csharp

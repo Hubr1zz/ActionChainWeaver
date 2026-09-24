@@ -116,6 +116,17 @@ namespace CardGame.ActionQueue
             NotifyChanged();
         }
 
+        internal void EnsureActiveChain(
+            long chainId,
+            IReadOnlyList<IGameActionReactor> chainReactors)
+        {
+            // CompleteChain notifies subscribers before the engine clears its active chain.
+            if (!IsRecording || (_hasActiveChain && _activeChainId == chainId) || _lastCompletedChainId == chainId)
+                return;
+
+            BeginChain(chainId, chainReactors);
+        }
+
         internal void RegisterAction(
             long id,
             long parentId,
@@ -168,6 +179,8 @@ namespace CardGame.ActionQueue
             _reactors.Add(id, node);
             if (_actions.TryGetValue(ownerActionId, out ActionQueueDebugNode owner))
                 owner.Reactors.Add(node);
+            else
+                _activeRoots.Add(node);
 
             return id;
         }
